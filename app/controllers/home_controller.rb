@@ -6,10 +6,12 @@ class HomeController < ApplicationController
 
     doc = Nokogiri::HTML(open('https://xakep.ru/'))
 
-    @info = doc.css('.loop .loop-panel a').take(3).each do |elem|
-      @link_post = elem['href']
-      doc = Nokogiri::HTML(open(@link_post))
-      
+    @links = []
+    doc.css('.loop .loop-panel a').take(3).each do |elem|
+      @links[@links.size] = elem['href']
+      # @title    = doc.css('.padded-panel h1').text
+      # @content  = doc.css('#content-anchor-inner').text
+      # New.create(:title => @title, :content => @content)
     end
 
     # @info = doc.xpath('//channel//item').take(3).map do |i|
