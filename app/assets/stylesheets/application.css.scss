@@ -17,3 +17,7 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+ul.navbar-right li span {
+  line-height: 50px;
+}
