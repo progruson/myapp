@@ -4,36 +4,38 @@ class HomeController < ApplicationController
     require 'open-uri'
     require 'net/https'
 
-    doc = Nokogiri::HTML(open('https://xakep.ru/'))
+    url = 'https://xakep.ru/'
+    html = open(url)
 
-    @links = []
-    doc.css('.loop .loop-panel a').take(3).each do |elem|
-      @links[@links.size] = elem['href']
-      # @title    = doc.css('.padded-panel h1').text
-      # @content  = doc.css('#content-anchor-inner').text
-      # New.create(:title => @title, :content => @content)
+    doc = Nokogiri::HTML(html)
+    # @showings = []
+    doc.css('.loop-panel').take(3).each do |showing|
+      url_post  = showing.at_css('a')['href']
+      html_post = open(url_post)
+
+      post = Nokogiri::HTML(html_post)
+      post.css('.post-right').each do |elem|
+        title_el    = elem.at_css('.padded-panel h1')
+        title       = title_el.text.strip
+        description = elem.at_css('#content-anchor-inner').text.strip
+        image_src   = elem.at_css('.featured-image-inner img')['src']
+        category    = elem.at_css('.category-list a').text.strip
+        # @showings.push(
+        #     title:       title,
+        #     description: description,
+        #     image:       image_src,
+        #     category:    category,
+        #     source_link: url
+        # )
+        # Category.create(:title => category)
+        # New.create(
+        #     :title => title,
+        #     :category_id => '#',
+        #     :content => description,
+        #     :source_link => url,
+        #     :image_src => image_src
+        # )
+      end
     end
-
-    # @info = doc.xpath('//channel//item').take(3).map do |i|
-    #   News.create(:title => i.xpath('title').inner_text, :content => i.xpath('description').inner_text, :link => i.xpath('link').inner_text)
-    # end
-
-    # @arr = []
-    # @info = doc.css('.article-title span').take(3).each do |elem|
-    #   # New.create(:title => elem.content)
-    #   @arr[@arr.size] = elem.content
-    # end
   end
 end
-
-
-
-# class NewsController < InheritedResources::Base
-#   def new
-#     require 'nokogiri'
-#     doc = Nokogiri::XML(open("http://www.rollingstone.com/siteServices/rss/musicNewsAndFeature"))
-#     @info = doc.xpath('//item').take(5).map do |i|
-#       News.create(:title => i.xpath('title').inner_text, :description => i.xpath('description').inner_text, :link => i.xpath('link').inner_text)
-#     end
-#   end
-# end
