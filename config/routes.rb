@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
   root 'home#index'
+  resources "articles", except: [:new, :edit]
+
   get  'persons/profile',   as: 'user_root'
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
-  resources "news"
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
