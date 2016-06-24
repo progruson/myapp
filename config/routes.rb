@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'articles#index'
   resources "articles", except: [:new, :edit]
 
   get  'persons/profile',   as: 'user_root'

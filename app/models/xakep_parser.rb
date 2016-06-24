@@ -15,21 +15,23 @@ class XakepParser
   def parse
     @doc.css('.loop-panel').take(3).each do |showing|
       url_post  = showing.at_css('a')['href']
+      # @excerpt = elem.css('.excerpt').to_html
       html_post = open(url_post)
 
       post = Nokogiri::HTML(html_post)
       post.css('.post-right').each do |elem|
         title_el    = elem.at_css('.padded-panel h1')
         title       = title_el.text.strip
-        description = elem.at_css('#content-anchor-inner').text.strip
+        description = elem.css('#content-anchor-inner p, blockquote, h2, h3, h4, h5, h6').to_html
         image_src   = elem.at_css('.featured-image-inner img')['src']
         # category    = elem.at_css('.category-list a').text.strip
 
         if block_given?
-         yield :title   => title,
-          :content      => description,
-          :source_link  => @url,
-          :image_src    => image_src
+         yield :title        => title,
+               # :excerpt  => @excerpt,
+               :content      => description,
+               :source_link  => @url,
+               :image_src    => image_src
         end
       end
     end

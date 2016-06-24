@@ -1,0 +1,11 @@
+<% provide(:title, 'News') %>
+<h1>Все публикации</h1>
+
+<% @articles.each do |article| %>
+  <h1><%= article.title %></h1>
+  <p class="text-center">
+    <img src="<%= article.image_src %>" />
+  </p>
+  <%== article.content %>
+  <!-- <p class="text-right"><%= link_to 'Читать далее', article_path(article) %></p> -->
+<% end %>

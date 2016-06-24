@@ -21,6 +21,7 @@ class FourpdaParser
         title_el    = elem.at_css('.description h1 span')
         title       = title_el.text.strip
         description = elem.at_css('.content-box').text.strip
+        description = description.css("style,script").remove
         image_src   = elem.at_css('.photo img')['src']
         # category    = elem.at_css('.category-list a').text.strip
 
