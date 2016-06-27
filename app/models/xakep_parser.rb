@@ -15,7 +15,7 @@ class XakepParser
   def parse
     @doc.css('.loop-panel').take(3).each do |showing|
       url_post  = showing.at_css('a')['href']
-      # @excerpt = elem.css('.excerpt').to_html
+      @excerpt  = showing.css('.excerpt').to_html
       html_post = open(url_post)
 
       post = Nokogiri::HTML(html_post)
@@ -27,11 +27,11 @@ class XakepParser
         # category    = elem.at_css('.category-list a').text.strip
 
         if block_given?
-         yield :title        => title,
-               # :excerpt  => @excerpt,
-               :content      => description,
-               :source_link  => @url,
-               :image_src    => image_src
+          yield :title        => title,
+                :text_preview => @excerpt,
+                :content      => description,
+                :source_link  => @url,
+                :image_src    => image_src
         end
       end
     end
