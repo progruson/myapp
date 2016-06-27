@@ -9,34 +9,25 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  # def new
+  #   @article = Article.new
+  # end
+  #
   # def create
   #   @article = Article.new(article_params)
   #
   #   if @article.save
-  #     render json: @article, status: :created, location: @article
+  #     flash[:success] = "Article created!"
+  #     redirect_to root_url
   #   else
-  #     render json: @article.errors, status: :unprocessable_entity
+  #     render 'new'
   #   end
   # end
   #
-  # # PATCH/PUT /articles/1
-  # # PATCH/PUT /articles/1.json
   # def update
-  #   @article = Article.find(params[:id])
-  #
-  #   if @article.update(article_params)
-  #     head :no_content
-  #   else
-  #     render json: @article.errors, status: :unprocessable_entity
-  #   end
   # end
   #
-  # # DELETE /articles/1
-  # # DELETE /articles/1.json
   # def destroy
-  #   @article.destroy
-  #
-  #   head :no_content
   # end
   #
   # private
@@ -46,7 +37,6 @@ class ArticlesController < ApplicationController
   #   end
   #
   #   def article_params
-  #     params[:article]
-  #     # params.require(:article).permit(:title, :content, :category_id, :source_link, :image_src, :comment_id)
+  #     params.require(:article).permit(:title, :text_preview, :content, :category_id, :source_link, :image_src, :comment_id)
   #   end
 end

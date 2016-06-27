@@ -1,4 +1,11 @@
 <h1><%== @article.title %></h1>
+
+<b>Категория:</b> <span class="badge"><%= @article.category.try(:title) %></span>
+
+<hr />
+
 <div class="text-justify">
   <%== @article.content %>
 </div>
+
+<hr />

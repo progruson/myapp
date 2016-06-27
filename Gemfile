@@ -39,6 +39,8 @@ gem 'mail_form'
 gem 'sidekiq'
 gem 'mailcatcher'
 
+gem 'annotate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

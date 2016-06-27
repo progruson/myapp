@@ -3,6 +3,7 @@ require 'open-uri'
 require 'net/https'
 
 class XakepParser
+
   def initialize
     @url = 'https://xakep.ru/'
   end
@@ -15,7 +16,7 @@ class XakepParser
   def parse
     @doc.css('.loop-panel').take(3).each do |showing|
       url_post  = showing.at_css('a')['href']
-      @excerpt  = showing.css('.excerpt').to_html
+      excerpt  = showing.css('.excerpt').to_html
       html_post = open(url_post)
 
       post = Nokogiri::HTML(html_post)
@@ -24,14 +25,18 @@ class XakepParser
         title       = title_el.text.strip
         description = elem.css('#content-anchor-inner p, blockquote, h2, h3, h4, h5, h6').to_html
         image_src   = elem.at_css('.featured-image-inner img')['src']
-        # category    = elem.at_css('.category-list a').text.strip
+        category    = elem.css('.category-list a').first.text.strip
+
+        data = {
+            :title        => title,
+            :text_preview => excerpt,
+            :content      => description,
+            :source_link  => @url,
+            :image_src    => image_src
+        }
 
         if block_given?
-          yield :title        => title,
-                :text_preview => @excerpt,
-                :content      => description,
-                :source_link  => @url,
-                :image_src    => image_src
+          yield data, category
         end
       end
     end
