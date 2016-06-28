@@ -20,5 +20,10 @@
   <div class="col-md-4">
     <h3>Категории</h3>
     <hr />
+    <ul class="list-group">
+      <% @categories.each do |category| %>
+        <li class="list-group-item"><%= link_to category.title, category_path(category) %></li>
+      <% end %>
+    </ul>
   </div>
 </div>

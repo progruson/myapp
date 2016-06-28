@@ -14,4 +14,7 @@ class Comment < ActiveRecord::Base
   belongs_to  :user
   belongs_to  :atricle
 
+  validates :message, presence: true, length: { minimum: 5 }
+  validates :user, presence: true
+
 end

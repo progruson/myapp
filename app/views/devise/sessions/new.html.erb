@@ -5,6 +5,15 @@
   <div class="col-md-4">
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <div class="alert alert-<%= name == :notice ? "success" : "danger" %>">
+          <a class="close" data-dismiss="alert">&#215;</a>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        </div>
+      <% end %>
+    <% end %>
+
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, class: "form-control" %>
