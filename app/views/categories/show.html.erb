@@ -11,12 +11,13 @@
     <% @articles.each do |article| %>
         <h3><%= article.title %></h3>
         <% if article.image_src %>
-            <p class="text-center"><img src="<%= article.image_src %>" width="100%" /></p>
+            <p><%= link_to image_tag(article.image_src, width: '100%'), article_path(article) %></p>
         <% end %>
         <div class="text-justify">
           <%== article.text_preview %>
         </div>
-        <p class="text-right"><%= link_to 'Читать далее', article_path(article) %></p>
+        <p class="text-right"><%= link_to 'Читать далее', article_path(article), class: "btn btn-primary" %></p>
+        <hr />
     <% end %>
   </div>
   <div class="col-md-4">

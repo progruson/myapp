@@ -4,17 +4,18 @@
 <div class="row">
   <div class="col-md-8">
     <% if @articles.empty? %>
-      <p>Статьи не найдены...</p>
+        <p>Статьи не найдены...</p>
     <% end %>
     <% @articles.each do |article| %>
-      <h3><%= article.title %></h3>
-      <% if article.image_src %>
-        <p class="text-center"><img src="<%= article.image_src %>" width="100%" /></p>
-      <% end %>
-      <div class="text-justify">
-         <%== article.text_preview %>
-      </div>
-      <p class="text-right"><%= link_to 'Читать далее', article_path(article) %></p>
+        <h3><%= article.title %></h3>
+        <% if article.image_src %>
+            <p><%= link_to image_tag(article.image_src, width: '100%'), article_path(article) %></p>
+        <% end %>
+        <div class="text-justify">
+          <%== article.text_preview %>
+        </div>
+        <p class="text-right"><%= link_to 'Читать далее', article_path(article), class: "btn btn-primary" %></p>
+        <hr />
     <% end %>
   </div>
   <div class="col-md-4">
@@ -23,7 +24,7 @@
 
     <div class="list-group">
       <% @categories.each do |category| %>
-        <%= link_to category.title, category_path(category), class: "list-group-item" %>
+          <%= link_to category.title, category_path(category), class: "list-group-item" %>
       <% end %>
     </div>
 
