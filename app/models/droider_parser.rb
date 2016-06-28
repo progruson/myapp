@@ -26,7 +26,10 @@ class DroiderParser
         title       = title_el.text.strip
         description = elem.css('.cover p, blockquote').to_html
         image_src   = elem.at_css('.entry img')['src']
-        category    = elem.css('span .category a').text.strip
+        category    = elem.css('.category a').first.text.strip
+        if category.nil?
+          category  = 'Droider'
+        end
 
         data = {
             :title        => title,

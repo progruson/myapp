@@ -26,6 +26,7 @@ class FourpdaParser
         title       = title_el.text.strip
         description = elem.css('.content-box p').to_html
         image_src   = elem.at_css('.photo img')['src']
+        category    = '4PDA'
 
         data = {
             :title        => title,

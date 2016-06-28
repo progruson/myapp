@@ -26,6 +26,9 @@ class XakepParser
         description = elem.css('#content-anchor-inner p, blockquote, h2, h3, h4, h5, h6').to_html
         image_src   = elem.at_css('.featured-image-inner img')['src']
         category    = elem.css('.category-list a').first.text.strip
+        if category.nil?
+          category  = 'Xakep'
+        end
 
         data = {
             :title        => title,
