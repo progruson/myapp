@@ -23,6 +23,9 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+            <li>
+              <%= link_to 'Админка', rails_admin_path %>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= current_user.email %> <b class="caret"></b>

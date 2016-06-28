@@ -1,5 +1,38 @@
 <% provide(:title, 'Категории') %>
-<h1>Публикации категории &laquo;<%= @categories.title %>&raquo;</h1>
+<h1>Публикации категории &laquo;<%= @category.title %>&raquo;</h1>
 
 <hr />
 
+<div class="row">
+  <div class="col-md-8">
+    <% if @articles.empty? %>
+        <p>Статьи не найдены...</p>
+    <% end %>
+    <% @articles.each do |article| %>
+        <h3><%= article.title %></h3>
+        <% if article.image_src %>
+            <p class="text-center"><img src="<%= article.image_src %>" width="100%" /></p>
+        <% end %>
+        <div class="text-justify">
+          <%== article.text_preview %>
+        </div>
+        <p class="text-right"><%= link_to 'Читать далее', article_path(article) %></p>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h3>Категории</h3>
+    <hr />
+
+    <div class="list-group">
+
+      <% @categories.each do |cat| %>
+          <% if @category.id == cat.id %>
+            <%= link_to cat.title, category_path(cat), class: "list-group-item active" %>
+          <% else %>
+              <%= link_to cat.title, category_path(cat), class: "list-group-item" %>
+          <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

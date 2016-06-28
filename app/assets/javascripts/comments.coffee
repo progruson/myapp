@@ -9,6 +9,8 @@ $ ->
         <p>#{data.message}</p>
     </div>"
 
+    $('p.text-danger').remove()
+
     cleanErrors()
     $(@)[0].reset()
 

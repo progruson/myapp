@@ -8,11 +8,17 @@ Rails.application.routes.draw do
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
 
-  resources :categories do
-    resources :articles do
-      resources :comments
-    end
+  # resources :categories do
+  #   resources :articles do
+  #     resources :comments
+  #   end
+  # end
+
+  resources :articles do
+    resources :comments
   end
+
+  resources :categories
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
