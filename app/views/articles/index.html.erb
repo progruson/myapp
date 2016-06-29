@@ -18,8 +18,12 @@
           <%== article.text_preview %>
         </div>
 
-        Комментарии: <span class="badge badge-notify"><%= article.comments.size %></span>
-        <p class="text-right"><%= link_to 'Читать далее', article_path(article), class: "btn btn-primary" %></p>
+        <button class="btn btn-primary" type="button">
+          Комментарии <span class="badge"><%= article.comments.size %></span>
+        </button>
+
+        <!--Комментарии: <span class="badge badge-notify"><%= article.comments.size %></span>-->
+        <div class="text-right"><%= link_to 'Читать далее', article_path(article), class: "btn btn-primary" %></div>
         <hr />
 
     <% end %>
