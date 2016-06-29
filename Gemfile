@@ -38,7 +38,8 @@ gem 'mail_form'
 
 gem 'sidekiq'
 gem 'mailcatcher'
-
+gem 'will_paginate', '~> 3.1'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'annotate'
 
 # Use ActiveModel has_secure_password
