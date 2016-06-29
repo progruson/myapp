@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac5771b6-2a20-47e0-991b-df3e3cd94b88" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/initializers/kaminari.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/myapp.iml" afterPath="$PROJECT_DIR$/.idea/myapp.iml" />
+    <list default="true" id="ac5771b6-2a20-47e0-991b-df3e3cd94b88" name="Default" comment="Comments count">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/articles_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/articles_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/articles/index.html.erb" afterPath="$PROJECT_DIR$/app/views/articles/index.html.erb" />
     </list>
     <ignored path="myapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -896,12 +890,20 @@
       <workItem from="1466994473699" duration="29832000" />
       <workItem from="1467081334252" duration="28376000" />
       <workItem from="1467110670327" duration="860000" />
-      <workItem from="1467167556847" duration="9269000" />
+      <workItem from="1467167556847" duration="9406000" />
     </task>
+    <task id="LOCAL-00001" summary="Comments count">
+      <created>1467178523721</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1467178523721</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198138000" />
+    <option name="totallyTimeSpent" value="198275000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -945,6 +947,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Comments count" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments count" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
