@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   def index
     @articles   = Article.all
     @categories = Category.all
-    @articles   = Article.paginate(page: params[:page], :per_page => 3)
+    @articles   = Article.includes(:comments).paginate(page: params[:page], :per_page => 3)
   end
 
   def show

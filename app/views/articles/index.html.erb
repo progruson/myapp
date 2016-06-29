@@ -10,14 +10,18 @@
     <% end %>
     <% @articles.each do |article| %>
         <h3><%= article.title %></h3>
+
         <% if article.image_src %>
             <p><%= link_to image_tag(article.image_src, width: '100%'), article_path(article) %></p>
         <% end %>
         <div class="text-justify">
           <%== article.text_preview %>
         </div>
+
+        Комментарии: <span class="badge badge-notify"><%= article.comments.size %></span>
         <p class="text-right"><%= link_to 'Читать далее', article_path(article), class: "btn btn-primary" %></p>
         <hr />
+
     <% end %>
 
     <div class="text-center"><%= will_paginate %></div>
